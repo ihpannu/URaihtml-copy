@@ -186,10 +186,10 @@ function ifError() {
 
 function greenLight() {
     console.log("request to turn on green led has been made");
-    const data = {}
+    let data = {};
     data.action = "write";
-    data.gpio = $(this).data("gpio");
-    data.status = this.checked;
+    data.gpio = 11;
+    data.status = true
     console.log(data);
 
     axios({
@@ -202,14 +202,13 @@ function greenLight() {
         })
         .then(response => {
             console.log("Success", response);
-            ledLight.classList.remove("is-danger")
+            ledLight.classList.remove("is-danger");
             ledLight.classList.add("is-success");
         })
         .catch(err => console.error("Error", err.message));
 }
 
 function redLight() {
-
     console.log("request to turn on red led has been made");
     axios({
             method: "post",
@@ -220,7 +219,7 @@ function redLight() {
         })
         .then(response => {
             console.log("Success", response);
-            ledLight.classList.remove("is-success")
+            ledLight.classList.remove("is-success");
             ledLight.classList.add("is-danger");
         })
         .catch(err => console.log("Error", err.message));
