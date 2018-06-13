@@ -3,10 +3,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-const gpio = require('rpi-gpio');
-gpio.setup(9, gpio.DIR_OUT);
-gpio.setup(10, gpio.DIR_OUT);
-gpio.setup(11, gpio.DIR_OUT);
+const rpio = require('rpio')
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -25,26 +22,18 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 
+app.post('/led/on', )
+
 app.post('/led/on', function (req, res) {
-    gpio.write(11, true, function (err) {
-        if (err) throw err;
-        console.log('Led is now on and Green');
-        return res.render('index', {
-            status: "Cool!!Led is On"
-        });
-    });
+    rpio.open(11, rpio.INPUT);
+    console.log('Pin 11 is currently ' + (rpio.read(11) ? 'high' : 'low'));
 
 });
 
 
 app.post('/led/off', function (req, res) {
-    gpio.write(11, true, function (err) {
-        if (err) throw err;
-        console.log('Led is not off and red');
-        return res.render('index', {
-            status: "Ohh!! Led is Off"
-        });
-    });
+    rpio.open(7, rpio.INPUT);
+    console.log('Pin 11 is currently ' + (rpio.read(7) ? 'high' : 'low'));
 
 });
 
