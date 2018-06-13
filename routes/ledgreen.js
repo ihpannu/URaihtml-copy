@@ -14,4 +14,4 @@ module.exports = function (req, res) {
         rpio.msleep(500);
     }
 
-};
+}

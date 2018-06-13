@@ -10,8 +10,8 @@ window.addEventListener("load", () => {
 
 let picoRunning = false,
     stillHere = false;
-const personName = document.querySelector("#canidate-name"),
-    ledLight = document.querySelector("#btn");
+const personName = document.querySelector("#canidate-name")
+// ledLight = document.querySelector("#btn");
 
 function faceDetected() {
     if (picoRunning === true) return;
@@ -195,8 +195,8 @@ function greenLight() {
         })
         .then(response => {
             console.log("Success", response);
-            ledLight.classList.remove("is-danger");
-            ledLight.classList.add("is-success");
+            // ledLight.classList.remove("is-danger");
+            // ledLight.classList.add("is-success");
         })
         .catch(err => console.error("Error", err.message));
 }
@@ -212,8 +212,8 @@ function redLight() {
         })
         .then(response => {
             console.log("Success", response);
-            ledLight.classList.remove("is-success");
-            ledLight.classList.add("is-danger");
+            // ledLight.classList.remove("is-success");
+            // ledLight.classList.add("is-danger");
         })
         .catch(err => console.log("Error", err.message));
 }
