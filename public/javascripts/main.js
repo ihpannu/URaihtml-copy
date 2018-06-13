@@ -186,13 +186,19 @@ function ifError() {
 
 function greenLight() {
     console.log("request to turn on green led has been made");
+    const data = {}
+    data.action = "write";
+    data.gpio = $(this).data("gpio");
+    data.status = this.checked;
+    console.log(data);
 
     axios({
             method: "post",
             headers: {
                 "content-type": "application/json"
             },
-            url: "/led/on"
+            url: "/led/on",
+            data: JSON.stringify(data)
         })
         .then(response => {
             console.log("Success", response);
