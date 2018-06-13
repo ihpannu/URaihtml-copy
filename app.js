@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser')
 const logger = require('morgan');
 
 const rpio = require('rpio')
@@ -13,6 +14,7 @@ const usersRouter = require('./routes/users');
 const app = express();
 
 app.use(logger('dev'));
+app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.urlencoded({
     extended: false
