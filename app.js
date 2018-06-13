@@ -7,7 +7,7 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const ledon = require('./routes/ledon')
+const ledgreen = require('./routes/ledgreen')
 const ledoff = require('./routes/ledoff')
 
 const app = express();
@@ -24,7 +24,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 
-app.post('/led/on', ledon);
+app.post('/led/green', ledgreen);
 app.post('/led/off', ledoff);
 
 

@@ -191,7 +191,7 @@ function greenLight() {
             headers: {
                 "content-type": "application/json"
             },
-            url: "/led/on",
+            url: "/led/green",
         })
         .then(response => {
             console.log("Success", response);
